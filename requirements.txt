@@ -1,0 +1,4 @@
+networkx==3.2
+packaging==23.2
+plotly==5.18.0
+tenacity==8.2.3
