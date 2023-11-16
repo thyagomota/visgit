@@ -1,0 +1,40 @@
+<html>
+    <head>
+      {{ graph.inject_css() }}
+    </head>
+    <body>
+      <div class="container">
+        <div width="800" height="600">
+          {{ graph.inject_js() }}
+          {{ graph.inject_graph() }}
+        </div>
+        <div>
+          <form id="command-form">
+            <label for="command">git</label>
+            <input type="text" id="command" name="command" style="width: 300px; margin: 10px; line-height: 36px; font-family: Verdana, Tahoma, sans-serif;
+                        font-size: 16px; background: lightgray; border: none; outline-width: 0;">
+            <button type="submit" style="display: none"">Submit</button>
+            &nbsp;
+            Branches: [
+            {% for branch in branches %}
+              {{ branch.replace(' ', '') }}
+            {% endfor %}
+            ]
+            &nbsp; &nbsp; Last commit: c{{ session['next_commit'] - 1 }}
+            &nbsp; &nbsp; <button type="button" class="button" onclick=simple_action("{{ url_for('index', command='init') }}")>Start Over</button>
+          </form>
+        </div>
+      </div>
+    </body>
+    <script type="text/javascript">
+        function simple_action(target) {
+            window.location = target
+        }
+
+        function confirmed_action(target) {
+                if (confirm('Are you sure?')) {
+                    window.location = target
+                }
+            }
+    </script>
+</html>

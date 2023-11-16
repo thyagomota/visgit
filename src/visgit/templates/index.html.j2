@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{ graph.inject_css() }}
+    <title>Flask App</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+</head>
+<body">
+    <div class="container">
+        <!-- <h1>Flask App</h1> -->
+        <div class="row">
+            <div class="col-md-6">
+                <canvas id="graph" width="800" height="600">
+                    {{ graph.inject_js() }}
+                    {{ graph.inject_graph() }}
+                </canvas>
+            </div>
+            <div class="col-md-6">
+                <form id="command-form">
+                    <div class="form-group">
+                        <label for="command">git</label>
+                        <input type="text" id="command" name="command" style="width: 300px; margin: 10px; line-height: 36px; font-family: Verdana, Tahoma, sans-serif;
+                        font-size: 16px; background: lightgray; border: none; outline-width: 0;">
+                    </div>
+                    <button type="submit" style="display: none"">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

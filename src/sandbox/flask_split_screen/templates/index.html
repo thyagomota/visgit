@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flask App</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+</head>
+<body">
+    <div class="container">
+        <!-- <h1>Flask App</h1> -->
+        <div class="row">
+            <div class="col-md-6">
+                <canvas id="graph" width="800" height="600"></canvas>
+            </div>
+            <div class="col-md-6">
+                <form id="command-form">
+                    <div class="form-group">
+                        <label for="command">git</label>
+                        <input type="text" id="command" name="command" class="form-control" style="width: 300px; margin: 10px; line-height: 36px; font-family: Verdana, Tahoma, sans-serif;
+                        font-size: 16px; background: lightgray; border: none; outline-width: 0;">
+                    </div>
+                    <button type="submit" class="button-9" style="display: none">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
